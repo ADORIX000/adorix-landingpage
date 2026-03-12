@@ -48,48 +48,48 @@ const MeetTeam = () => {
             name: "Deeghayu Arandara",
             role: "TEAM LEAD & IOT ARCHITECT",
             image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Deeghayu",
-            linkedin: "https://linkedin.com/in/YOUR_LINK_HERE",
-            github: "https://github.com/YOUR_LINK_HERE",
+            linkedin: "https://www.linkedin.com/in/deeghayu-arandara-44773730a/",
+            github: "https://github.com/DeeghayuA",
             twitter: "https://x.com/YOUR_LINK_HERE"
         },
         {
             name: "Binethma Jayawickrama",
             role: "COMPUTER VISION ENGINEER",
             image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Binethma",
-            linkedin: "https://linkedin.com/in/YOUR_LINK_HERE",
-            github: "https://github.com/YOUR_LINK_HERE",
+            linkedin: "https://www.linkedin.com/in/binethma/",
+            github: "https://github.com/BinethmaJayawickrama",
             twitter: "https://x.com/YOUR_LINK_HERE"
         },
         {
             name: "Sithika Weerasinghe",
             role: "FULL STACK DEVELOPER",
             image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sithika",
-            linkedin: "https://linkedin.com/in/YOUR_LINK_HERE",
-            github: "https://github.com/YOUR_LINK_HERE",
+            linkedin: "https://github.com/SithikaWeerasinghe",
+            github: "https://github.com/SithikaWeerasinghe",
             twitter: "https://x.com/YOUR_LINK_HERE"
         },
         {
             name: "Chanithma Dangalla",
             role: "BACKEND DEVELOPER",
             image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Chanithma",
-            linkedin: "https://linkedin.com/in/YOUR_LINK_HERE",
-            github: "https://github.com/YOUR_LINK_HERE",
+            linkedin: " https://www.linkedin.com/in/chanithma-dangalla-b52203339/",
+            github: "https://github.com/Chanithmaaa",
             twitter: "https://x.com/YOUR_LINK_HERE"
         },
         {
             name: "Sahan Adithya",
             role: "AI INTERACTION DESIGNER",
             image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sahan",
-            linkedin: "https://linkedin.com/in/YOUR_LINK_HERE",
-            github: "https://github.com/YOUR_LINK_HERE",
+            linkedin: " https://www.linkedin.com/in/sahan-adithya-32a941359/",
+            github: "https://github.com/SahanAdithya",
             twitter: "https://x.com/YOUR_LINK_HERE"
         },
         {
             name: "Lithira Kalubowila",
             role: "DATA ANALYTICS SPECIALIST",
             image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Lithira",
-            linkedin: "https://linkedin.com/in/YOUR_LINK_HERE",
-            github: "https://github.com/YOUR_LINK_HERE",
+            linkedin: "https://www.linkedin.com/in/lithira-kalubowila-78b169354/",
+            github: "https://github.com/lithira20240973-ops",
             twitter: "https://x.com/YOUR_LINK_HERE"
         }
     ];
