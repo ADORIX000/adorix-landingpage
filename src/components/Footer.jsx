@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Twitter, Linkedin, Github, Mail, ArrowRight } from 'lucide-react';
 
 const Footer = () => {
@@ -12,7 +12,7 @@ const Footer = () => {
 
                     {/* Brand & Socials */}
                     <div className="space-y-6">
-                        <Link to="/" className="text-3xl font-bold tracking-tight text-white">
+                        <Link href="/" className="text-3xl font-bold tracking-tight text-white">
                             ADORIX
                         </Link>
                         <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
@@ -35,7 +35,7 @@ const Footer = () => {
                     <div>
                         <h3 className="font-bold text-lg mb-6">Product</h3>
                         <ul className="space-y-4 text-gray-400 text-sm">
-                            <li><Link to="/pricing" className="hover:text-adorix-primary transition-colors">Pricing</Link></li>
+                            <li><Link href="/pricing" className="hover:text-adorix-primary transition-colors">Pricing</Link></li>
                         </ul>
                     </div>
 
@@ -43,7 +43,7 @@ const Footer = () => {
                     <div>
                         <h3 className="font-bold text-lg mb-6">Company</h3>
                         <ul className="space-y-4 text-gray-400 text-sm">
-                            <li><Link to="/contact" className="hover:text-adorix-primary transition-colors">Contact</Link></li>
+                            <li><Link href="/contact" className="hover:text-adorix-primary transition-colors">Contact</Link></li>
                             <li><a href="mailto:info@adorixit.com" className="hover:text-adorix-primary transition-colors">info@adorixit.com</a></li>
                         </ul>
                     </div>

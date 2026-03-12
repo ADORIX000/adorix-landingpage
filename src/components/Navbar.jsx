@@ -1,11 +1,14 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
 
   // Handle scroll effect
   useEffect(() => {
@@ -19,7 +22,7 @@ const Navbar = () => {
   // Close mobile menu on route change
   useEffect(() => {
     setMobileMenuOpen(false);
-  }, [location]);
+  }, [pathname]);
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -38,7 +41,7 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
 
           {/* Logo */}
-          <Link to="/" className="text-2xl font-bold tracking-tight text-adorix-dark flex items-center gap-2 group">
+          <Link href="/" className="text-2xl font-bold tracking-tight text-adorix-dark flex items-center gap-2 group">
             <span className="bg-adorix-dark text-white w-8 h-8 flex items-center justify-center rounded-lg group-hover:bg-adorix-primary transition-colors">A</span>
             ADORIX
           </Link>
@@ -48,11 +51,11 @@ const Navbar = () => {
             {navLinks.map((link) => (
               <Link
                 key={link.path}
-                to={link.path}
-                className={`transition-colors hover:text-adorix-primary relative group ${location.pathname === link.path ? 'text-adorix-primary font-bold' : ''}`}
+                href={link.path}
+                className={`transition-colors hover:text-adorix-primary relative group ${pathname === link.path ? 'text-adorix-primary font-bold' : ''}`}
               >
                 {link.name}
-                <span className={`absolute -bottom-1 left-0 w-full h-0.5 bg-adorix-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left ${location.pathname === link.path ? 'scale-x-100' : ''}`} />
+                <span className={`absolute -bottom-1 left-0 w-full h-0.5 bg-adorix-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left ${pathname === link.path ? 'scale-x-100' : ''}`} />
               </Link>
             ))}
           </div>
@@ -89,7 +92,7 @@ const Navbar = () => {
           {navLinks.map((link) => (
             <Link
               key={link.path}
-              to={link.path}
+              href={link.path}
               className="text-2xl font-bold text-gray-800 hover:text-adorix-primary transition-colors"
             >
               {link.name}
@@ -115,4 +118,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navbar;

@@ -83,11 +83,11 @@ const SupersonicStream = ({ isPaused }) => (
                         x1="120" x2="-20"
                         y1={20 + i * 8} y2={20 + i * 8}
                         stroke="var(--adorix-primary)"
-                        strokeWidth={0.5 + Math.random()}
+                        strokeWidth={0.5 + ((i * 137) % 100) / 100}
                         strokeDasharray="20 40"
-                        opacity={0.2 + Math.random() * 0.3}
+                        opacity={0.2 + ((i * 91) % 30) / 100}
                         animate={!isPaused ? { x: [-150, 150] } : { x: 0 }}
-                        transition={{ duration: 0.8 + Math.random() * 0.5, repeat: Infinity, ease: "linear" }}
+                        transition={{ duration: 0.8 + ((i * 73) % 50) / 100, repeat: Infinity, ease: "linear" }}
                     />
                 ))}
             </g>
@@ -128,18 +128,18 @@ const SupersonicStream = ({ isPaused }) => (
             {[...Array(6)].map((_, i) => (
                 <motion.rect
                     key={`p-${i}`}
-                    width={10 + Math.random() * 20}
+                    width={10 + ((i * 223) % 20)}
                     height="0.8"
                     fill="var(--adorix-accent)"
                     opacity="0.4"
                     animate={!isPaused ? { x: [150, -100] } : { x: 50 }}
                     transition={{
-                        duration: 0.5 + Math.random() * 0.5,
+                        duration: 0.5 + ((i * 157) % 50) / 100,
                         repeat: Infinity,
-                        delay: Math.random(),
+                        delay: ((i * 311) % 100) / 100,
                         ease: "linear"
                     }}
-                    y={15 + Math.random() * 70}
+                    y={15 + ((i * 449) % 70)}
                 />
             ))}
         </svg>
