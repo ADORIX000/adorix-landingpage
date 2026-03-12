@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Check, Star, Zap, Sparkles, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import TypingText from '../../../components/home/TypingText';
+import TypingText from '../components/TypingText';
 
 const PricingCard = ({
   title,
@@ -74,15 +74,15 @@ const PricingCard = ({
         ))}
       </ul>
 
-      <Link
-        to={`/upgrade/${title.toLowerCase()}`}
+      <a
+        href="https://app.yourdomain.com/signup"
         className={`block text-center w-full py-4 rounded-2xl font-bold transition-all ${recommended
           ? 'bg-adorix-dark text-white hover:bg-adorix-primary shadow-lg shadow-adorix-dark/20'
           : 'bg-gray-100 text-gray-900 hover:bg-adorix-light hover:text-adorix-dark'
           }`}
       >
         Get Started with {title}
-      </Link>
+      </a>
     </div>
   );
 };

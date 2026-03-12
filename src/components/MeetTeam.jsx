@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Linkedin, Twitter, Github } from 'lucide-react';
 
-const TeamMember = ({ name, role, image, delay }) => (
+const TeamMember = ({ name, role, image, delay, linkedin, github, twitter }) => (
     <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -14,15 +14,30 @@ const TeamMember = ({ name, role, image, delay }) => (
             <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-adorix-light group-hover:border-adorix-primary transition-colors duration-500 mx-auto">
                 <img src={image} alt={name} className="w-full h-full object-cover" />
             </div>
-            <div className="absolute -bottom-2 -right-2 bg-adorix-primary text-white p-2 rounded-full scale-0 group-hover:scale-100 transition-transform duration-500">
-                <Linkedin className="w-4 h-4" />
-            </div>
+            {linkedin && (
+                <a
+                    href={linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute -bottom-2 -right-2 bg-adorix-primary text-white p-2 rounded-full scale-0 group-hover:scale-100 transition-transform duration-500"
+                >
+                    <Linkedin className="w-4 h-4" />
+                </a>
+            )}
         </div>
         <h3 className="text-xl font-bold text-adorix-dark mb-1">{name}</h3>
         <p className="text-adorix-primary font-medium text-sm mb-4">{role}</p>
         <div className="flex justify-center gap-4">
-            <Github className="w-5 h-5 text-gray-400 hover:text-adorix-dark cursor-pointer transition-colors" />
-            <Twitter className="w-5 h-5 text-gray-400 hover:text-adorix-accent cursor-pointer transition-colors" />
+            {github && (
+                <a href={github} target="_blank" rel="noopener noreferrer">
+                    <Github className="w-5 h-5 text-gray-400 hover:text-adorix-dark cursor-pointer transition-colors" />
+                </a>
+            )}
+            {twitter && (
+                <a href={twitter} target="_blank" rel="noopener noreferrer">
+                    <Twitter className="w-5 h-5 text-gray-400 hover:text-adorix-accent cursor-pointer transition-colors" />
+                </a>
+            )}
         </div>
     </motion.div>
 );
@@ -33,31 +48,49 @@ const MeetTeam = () => {
             name: "Deeghayu Arandara",
             role: "TEAM LEAD & IOT ARCHITECT",
             image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Deeghayu",
+            linkedin: "https://linkedin.com/in/YOUR_LINK_HERE",
+            github: "https://github.com/YOUR_LINK_HERE",
+            twitter: "https://x.com/YOUR_LINK_HERE"
         },
         {
             name: "Binethma Jayawickrama",
             role: "COMPUTER VISION ENGINEER",
             image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Binethma",
+            linkedin: "https://linkedin.com/in/YOUR_LINK_HERE",
+            github: "https://github.com/YOUR_LINK_HERE",
+            twitter: "https://x.com/YOUR_LINK_HERE"
         },
         {
             name: "Sithika Weerasinghe",
             role: "FULL STACK DEVELOPER",
             image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sithika",
+            linkedin: "https://linkedin.com/in/YOUR_LINK_HERE",
+            github: "https://github.com/YOUR_LINK_HERE",
+            twitter: "https://x.com/YOUR_LINK_HERE"
         },
         {
             name: "Chanithma Dangalla",
             role: "BACKEND DEVELOPER",
             image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Chanithma",
+            linkedin: "https://linkedin.com/in/YOUR_LINK_HERE",
+            github: "https://github.com/YOUR_LINK_HERE",
+            twitter: "https://x.com/YOUR_LINK_HERE"
         },
         {
             name: "Sahan Adithya",
             role: "AI INTERACTION DESIGNER",
             image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sahan",
+            linkedin: "https://linkedin.com/in/YOUR_LINK_HERE",
+            github: "https://github.com/YOUR_LINK_HERE",
+            twitter: "https://x.com/YOUR_LINK_HERE"
         },
         {
             name: "Lithira Kalubowila",
             role: "DATA ANALYTICS SPECIALIST",
             image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Lithira",
+            linkedin: "https://linkedin.com/in/YOUR_LINK_HERE",
+            github: "https://github.com/YOUR_LINK_HERE",
+            twitter: "https://x.com/YOUR_LINK_HERE"
         }
     ];
 

@@ -2,12 +2,12 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import TypingText from '../../components/home/TypingText';
-import WorkflowAnimation from '../../components/home/WorkflowAnimation';
-import TechStack from '../../components/home/TechStack';
-import FeatureCards from '../../components/home/FeatureCards';
-import VisionMission from '../../components/home/VisionMission';
-import MeetTeam from '../../components/home/MeetTeam';
+import TypingText from '../components/TypingText';
+import WorkflowAnimation from '../components/WorkflowAnimation';
+import TechStack from '../components/TechStack';
+import Features from '../components/Features';
+import VisionMission from '../components/VisionMission';
+import MeetTeam from '../components/MeetTeam';
 
 const Home = () => {
   return (
@@ -43,12 +43,12 @@ const Home = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="flex flex-col sm:flex-row gap-5 justify-center items-center mt-4"
         >
-          <Link to="/signup" className="px-10 py-4 bg-gray-900 text-white rounded-full font-bold hover:bg-black transition flex items-center gap-2 group shadow-lg hover:shadow-xl hover:-translate-y-1 duration-200">
+          <a href="https://app.yourdomain.com/signup" className="px-10 py-4 bg-gray-900 text-white rounded-full font-bold hover:bg-black transition flex items-center gap-2 group shadow-lg hover:shadow-xl hover:-translate-y-1 duration-200">
             Get Started <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition" />
-          </Link>
-          <Link to="/dashboard" className="px-10 py-4 bg-white text-gray-900 border border-gray-200 rounded-full font-bold hover:bg-gray-50 transition hover:border-gray-300 hover:shadow-md hover:-translate-y-1 duration-200">
+          </a>
+          <a href="https://app.yourdomain.com/login" className="px-10 py-4 bg-white text-gray-900 border border-gray-200 rounded-full font-bold hover:bg-gray-50 transition hover:border-gray-300 hover:shadow-md hover:-translate-y-1 duration-200">
             View Live Demo
-          </Link>
+          </a>
         </motion.div>
       </section>
 
@@ -86,7 +86,7 @@ const Home = () => {
       <VisionMission />
 
       {/* ANIMATED FEATURE CARDS */}
-      <FeatureCards />
+      <Features />
 
       {/* MEET OUR TEAM SECTION */}
       <MeetTeam />
@@ -108,9 +108,9 @@ const Home = () => {
 
           <div className="relative z-10">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">Ready to capture real attention?</h2>
-            <Link to="/signup" className="inline-block bg-adorix-primary hover:bg-adorix-secondary text-white px-12 py-5 rounded-full font-bold text-lg transition shadow-[0_0_30px_rgba(13,138,158,0.3)] hover:shadow-[0_0_50px_rgba(13,138,158,0.5)] transform hover:-translate-y-1">
+            <a href="https://app.yourdomain.com/signup" className="inline-block bg-adorix-primary hover:bg-adorix-secondary text-white px-12 py-5 rounded-full font-bold text-lg transition shadow-[0_0_30px_rgba(13,138,158,0.3)] hover:shadow-[0_0_50px_rgba(13,138,158,0.5)] transform hover:-translate-y-1">
               Deploy Your First Campaign
-            </Link>
+            </a>
             <p className="mt-8 text-gray-500 text-sm">No credit card required for demo.</p>
           </div>
         </div>
