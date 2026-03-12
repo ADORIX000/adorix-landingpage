@@ -66,6 +66,7 @@ const Navbar = () => {
 
           {/* Auth Buttons */}
           <div className="hidden lg:flex items-center gap-8 font-medium text-sm text-gray-600">
+<<<<<<< Updated upstream:src/components/layout/navbar.jsx
             {!isAuthenticated ? (
               <>
                 <Link
@@ -100,6 +101,20 @@ const Navbar = () => {
                 </button>
               </div>
             )}
+=======
+            <a
+              href="https://dashboard.adorixit.com/login"
+              className="transition-colors hover:text-adorix-primary font-medium"
+            >
+              Log In
+            </a>
+            <a
+              href="https://dashboard.adorixit.com/signup"
+              className="bg-adorix-dark text-white px-6 py-2 rounded-full hover:bg-adorix-primary transition-all duration-300 shadow-md hover:shadow-lg active:scale-95"
+            >
+              Sign Up
+            </a>
+>>>>>>> Stashed changes:src/components/Navbar.jsx
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -125,6 +140,7 @@ const Navbar = () => {
             </Link>
           ))}
           <div className="flex flex-col items-center gap-8 mt-2 w-full max-w-xs">
+<<<<<<< Updated upstream:src/components/layout/navbar.jsx
             {!isAuthenticated ? (
               <>
                 <Link
@@ -158,6 +174,20 @@ const Navbar = () => {
                 </button>
               </>
             )}
+=======
+            <a
+              href="https://dashboard.adorixit.com/login"
+              className="text-2xl font-bold text-gray-800 hover:text-adorix-primary transition-colors"
+            >
+              Log In
+            </a>
+            <a
+              href="https://dashboard.adorixit.com/signup"
+              className="w-full bg-adorix-dark text-white text-center py-4 rounded-xl text-xl font-bold hover:bg-adorix-primary transition-colors"
+            >
+              Sign Up
+            </a>
+>>>>>>> Stashed changes:src/components/Navbar.jsx
           </div>
         </div>
       </div>
