@@ -1,4 +1,4 @@
-import AntigravityBackground from '../ui/AntigravityBackground';
+import AntigravityBackground from './ui/AntigravityBackground';
 
 const GradientWrapper = ({ children }) => {
   return (

@@ -4,7 +4,7 @@ import {
     Send, Globe, Github, Twitter, Linkedin,
     ArrowRight, Sparkles
 } from 'lucide-react';
-import TypingText from '../../components/home/TypingText';
+import TypingText from '../components/TypingText';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -29,7 +29,7 @@ const Contact = () => {
         try {
             const response = await fetch("https://formsubmit.co/ajax/info@adorixit.com", {
                 method: "POST",
-                headers: { 
+                headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json'
                 },
@@ -123,7 +123,7 @@ const Contact = () => {
                             </div>
                             <div className="space-y-2">
                                 <label className="text-xs font-black text-adorix-dark uppercase tracking-widest ml-2">Subject</label>
-                                <select 
+                                <select
                                     name="subject"
                                     value={formData.subject}
                                     onChange={handleChange}
@@ -147,8 +147,8 @@ const Contact = () => {
                                     className="w-full bg-white/5 backdrop-blur-sm border-2 border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-adorix-primary focus:bg-white/20 transition-all font-semibold text-adorix-dark resize-none placeholder-gray-500"
                                 />
                             </div>
-                            <button 
-                                type="submit" 
+                            <button
+                                type="submit"
                                 disabled={status === 'sending' || status === 'success'}
                                 className="w-full py-5 bg-adorix-dark hover:bg-black text-white rounded-2xl font-black text-lg transition-all flex items-center justify-center gap-3 group active:scale-[0.98] disabled:opacity-75 disabled:cursor-not-allowed"
                             >
