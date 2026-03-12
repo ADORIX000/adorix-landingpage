@@ -29,7 +29,7 @@ const TeamMember = ({ name, role, image, delay, linkedin, github, twitter }) => 
         <p className="text-adorix-primary font-medium text-sm mb-4">{role}</p>
         <div className="flex justify-center gap-4">
             {github && (
-                <a href={github} target="_blank" rel="noopener noreferrer">
+                <a href={github}>
                     <Github className="w-5 h-5 text-gray-400 hover:text-adorix-dark cursor-pointer transition-colors" />
                 </a>
             )}
