@@ -53,7 +53,7 @@ const Home = () => {
 
 
 
-      {/* 3. STRIPE-STYLE ANIMATION (The Connecting Lines) */}
+    
       <section className="px-6 max-w-7xl mx-auto mb-10 mt-10 md:mt-32 z-10 relative">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-16 items-center">
 
