@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, LogOut, User } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
+import icon from '../../assets/icon.png';
 
 const Navbar = () => {
   const { isAuthenticated, logout, user } = useAuth();
@@ -45,8 +46,8 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
 
           {/* Logo */}
-          <Link to="/" className="text-2xl font-bold tracking-tight text-adorix-dark flex items-center gap-2 group">
-            <span className="bg-adorix-dark text-white w-8 h-8 flex items-center justify-center rounded-lg group-hover:bg-adorix-primary transition-colors">A</span>
+          <Link to="/" className="text-2xl font-bold tracking-tight text-adorix-dark flex items-center gap-3 group">
+            <img src={icon} alt="Adorix Logo" className="w-10 h-10 object-contain" />
             ADORIX
           </Link>
 
@@ -68,15 +69,17 @@ const Navbar = () => {
           <div className="hidden lg:flex items-center gap-8 font-medium text-sm text-gray-600">
             <a
               href="https://dashboard.adorixit.com/login"
-              className="transition-colors hover:text-adorix-primary font-medium"
+              className="transition-all duration-300 hover:text-adorix-primary relative group"
             >
               Log In
+              <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-adorix-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
             </a>
             <a
               href="https://dashboard.adorixit.com/signup"
-              className="bg-adorix-dark text-white px-6 py-2 rounded-full hover:bg-adorix-primary transition-all duration-300 shadow-md hover:shadow-lg active:scale-95"
+              className="transition-all duration-300 hover:text-adorix-primary relative group"
             >
               Sign Up
+              <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-adorix-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
             </a>
           </div>
 
@@ -111,7 +114,7 @@ const Navbar = () => {
             </a>
             <a
               href="https://dashboard.adorixit.com/signup"
-              className="w-full bg-adorix-dark text-white text-center py-4 rounded-xl text-xl font-bold hover:bg-adorix-primary transition-colors"
+              className="text-2xl font-bold text-gray-800 hover:text-adorix-primary transition-colors"
             >
               Sign Up
             </a>
