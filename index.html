@@ -28,166 +28,361 @@
         overflow: hidden;
       }
 
-      /* Clean Harmonic Ripples */
-      .ripple-container {
+      /* Massive HUD Container */
+      .hud-container {
         position: relative;
-        width: 100px;
-        height: 100px;
+        width: 180px;
+        height: 180px;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-bottom: 2rem;
+        margin-bottom: 3rem;
+        transform: scale(1.1);
       }
 
-      .ripple-core {
-        position: relative;
-        z-index: 10;
-        width: 16px;
-        height: 16px;
-        background: #0A7383;
-        /* adorix-primary */
-        border-radius: 50%;
-        animation: core-pulse 2s ease-in-out infinite alternate;
-        box-shadow: 0 0 10px rgba(10, 115, 131, 0.4);
-      }
-
-      .ripple-ring {
+      /* Base HUD Glow */
+      .hud-container::before {
+        content: "";
         position: absolute;
-        border-radius: 50%;
-        border: 2px solid rgba(18, 178, 193, 0.8);
-        /* adorix-accent */
-        opacity: 0;
-        animation: ripple-expand 3s cubic-bezier(0.1, 0.8, 0.3, 1) infinite;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle, rgba(18, 178, 193, 0.15) 0%, transparent 60%);
+        animation: hud-pulse 2s infinite alternate;
       }
 
-      .ripple-ring:nth-child(2) {
-        animation-delay: 1s;
-      }
-
-      .ripple-ring:nth-child(3) {
-        animation-delay: 2s;
-      }
-
-      @keyframes ripple-expand {
+      @keyframes hud-pulse {
         0% {
-          width: 16px;
-          height: 16px;
+          opacity: 0.5;
+          transform: scale(0.9);
+        }
+
+        100% {
           opacity: 1;
-          border-width: 3px;
-        }
-
-        100% {
-          width: 120px;
-          height: 120px;
-          opacity: 0;
-          border-width: 0px;
+          transform: scale(1.2);
         }
       }
 
-      @keyframes core-pulse {
+      /* Outer Data Track */
+      .hud-outer-ring {
+        position: absolute;
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        border: 2px dashed rgba(10, 115, 131, 0.4);
+        border-top: 2px solid #0A7383;
+        border-bottom: 2px solid #0A7383;
+        animation: hud-spin-slow 12s linear infinite;
+        box-shadow: 0 0 15px rgba(10, 115, 131, 0.1) inset;
+      }
+
+      /* Middle Segmented Arc */
+      .hud-middle-ring {
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 4px solid transparent;
+        border-left: 4px solid #12B2C1;
+        border-right: 4px solid #12B2C1;
+        animation: hud-spin-fast 3s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+        filter: drop-shadow(0 0 8px #12B2C1);
+      }
+
+      /* Inner Precision Crosshair */
+      .hud-inner-crosshair {
+        position: absolute;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        border: 1px solid rgba(18, 178, 193, 0.5);
+        animation: hud-spin-reverse 8s linear infinite reverse;
+      }
+
+      .hud-inner-crosshair::before,
+      .hud-inner-crosshair::after {
+        content: "";
+        position: absolute;
+        background: #0A7383;
+      }
+
+      .hud-inner-crosshair::before {
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 2px;
+        transform: translateX(-50%);
+      }
+
+      .hud-inner-crosshair::after {
+        left: 0;
+        right: 0;
+        top: 50%;
+        height: 2px;
+        transform: translateY(-50%);
+      }
+
+      /* Core Target Lock */
+      .hud-core {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: radial-gradient(circle, #E5F9F8 0%, #12B2C1 40%, #0A7383 100%);
+        border-radius: 50%;
+        z-index: 10;
+        box-shadow: 0 0 20px 5px rgba(18, 178, 193, 0.6);
+        animation: lock-on 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite alternate;
+      }
+
+      /* Animated Orbiting Sensors */
+      .hud-sensor {
+        position: absolute;
+        width: 140px;
+        height: 140px;
+        animation: hud-spin-fast 4s linear infinite;
+      }
+
+      .hud-sensor::after {
+        content: "";
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        background: #E5F9F8;
+        border: 2px solid #0A7383;
+        border-radius: 50%;
+        top: -6px;
+        left: 50%;
+        transform: translateX(-50%);
+        box-shadow: 0 0 10px #0A7383;
+      }
+
+      /* Animations */
+      @keyframes hud-spin-slow {
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes hud-spin-fast {
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes hud-spin-reverse {
+        100% {
+          transform: rotate(-360deg);
+        }
+      }
+
+      @keyframes lock-on {
         0% {
-          transform: scale(1);
-          box-shadow: 0 0 10px rgba(10, 115, 131, 0.4);
+          transform: scale(0.8);
+          background: #12B2C1;
+          box-shadow: 0 0 10px rgba(18, 178, 193, 0.4);
         }
 
         100% {
-          transform: scale(1.3);
-          box-shadow: 0 0 20px rgba(18, 178, 193, 0.8);
+          transform: scale(1.4);
+          background: #0A7383;
+          box-shadow: 0 0 30px rgba(10, 115, 131, 0.9);
         }
       }
 
-      /* Elegant SaaS Text */
-      .premium-loading-container {
+      /* Advanced Cyberpunk Typography */
+      .hud-text-container {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 0.75rem;
-      }
-
-      .premium-title {
-        color: #1F2B2D;
-        font-weight: 500;
-        font-size: 1.1rem;
-        letter-spacing: 0.3em;
-        text-transform: uppercase;
-        margin-right: -0.3em;
-        animation: text-glow 2s ease-in-out infinite alternate;
-      }
-
-      @keyframes text-glow {
-        0% {
-          opacity: 0.8;
-        }
-
-        100% {
-          opacity: 1;
-          text-shadow: 0 0 8px rgba(18, 178, 193, 0.3);
-        }
-      }
-
-      .premium-bar-container {
-        width: 160px;
-        height: 2px;
-        background: rgba(10, 115, 131, 0.1);
-        border-radius: 4px;
-        overflow: hidden;
+        gap: 0.5rem;
         position: relative;
       }
 
-      .premium-bar-fill {
-        height: 100%;
-        width: 40%;
-        background: linear-gradient(90deg, #0A7383, #12B2C1);
-        border-radius: 4px;
-        animation: smooth-scan 2.5s ease-in-out infinite alternate;
+      .hud-title {
+        color: #1F2B2D;
+        font-weight: 900;
+        font-size: 1.4rem;
+        letter-spacing: 0.5em;
+        text-transform: uppercase;
+        margin-right: -0.5em;
+        position: relative;
+        text-shadow: 0px 0px 8px rgba(18, 178, 193, 0.5);
       }
 
-      @keyframes smooth-scan {
+      /* Glitch effect pseudo-elements */
+      .hud-title::before,
+      .hud-title::after {
+        content: "INITIALIZING";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #E5F9F8;
+        opacity: 0.8;
+      }
+
+      .hud-title::before {
+        left: 2px;
+        text-shadow: -2px 0 #12B2C1;
+        animation: glitch-anim-1 2s infinite linear alternate-reverse;
+      }
+
+      .hud-title::after {
+        left: -2px;
+        text-shadow: -2px 0 #0A7383;
+        animation: glitch-anim-2 3s infinite linear alternate-reverse;
+      }
+
+      @keyframes glitch-anim-1 {
         0% {
-          transform: translateX(0);
-          width: 10%;
-          opacity: 0.5;
+          clip-path: inset(20% 0 80% 0);
+        }
+
+        20% {
+          clip-path: inset(60% 0 10% 0);
+        }
+
+        40% {
+          clip-path: inset(40% 0 50% 0);
+        }
+
+        60% {
+          clip-path: inset(80% 0 5% 0);
+        }
+
+        80% {
+          clip-path: inset(10% 0 70% 0);
         }
 
         100% {
-          transform: translateX(120px);
-          width: 40%;
-          opacity: 1;
+          clip-path: inset(30% 0 20% 0);
         }
       }
 
-      .premium-subtitle {
-        color: rgba(10, 115, 131, 0.7);
-        font-size: 0.7rem;
-        font-weight: 600;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
-        animation: fade-sub 2s ease-in-out infinite alternate;
+      @keyframes glitch-anim-2 {
+        0% {
+          clip-path: inset(10% 0 60% 0);
+        }
+
+        20% {
+          clip-path: inset(30% 0 20% 0);
+        }
+
+        40% {
+          clip-path: inset(70% 0 10% 0);
+        }
+
+        60% {
+          clip-path: inset(5% 0 80% 0);
+        }
+
+        80% {
+          clip-path: inset(50% 0 30% 0);
+        }
+
+        100% {
+          clip-path: inset(80% 0 5% 0);
+        }
       }
 
-      @keyframes fade-sub {
+      /* Decoding Data Bar */
+      .hud-decoding-bar {
+        width: 220px;
+        height: 4px;
+        display: flex;
+        gap: 2px;
+        background: transparent;
+        margin-top: 0.5rem;
+      }
+
+      .hud-decode-segment {
+        flex: 1;
+        height: 100%;
+        background: #0A7383;
+        opacity: 0.2;
+        animation: decode-flash 0.5s infinite alternate;
+      }
+
+      /* Randomize delays for a data-processing look */
+      .hud-decode-segment:nth-child(2n) {
+        animation-delay: 0.3s;
+        animation-duration: 0.8s;
+      }
+
+      .hud-decode-segment:nth-child(3n) {
+        animation-delay: 0.1s;
+        animation-duration: 0.4s;
+      }
+
+      .hud-decode-segment:nth-child(5n) {
+        animation-delay: 0.5s;
+        animation-duration: 0.6s;
+      }
+
+      @keyframes decode-flash {
+        0% {
+          opacity: 0.1;
+          box-shadow: none;
+        }
+
+        100% {
+          opacity: 1;
+          background: #12B2C1;
+          box-shadow: 0 0 8px #12B2C1;
+        }
+      }
+
+      .hud-subtitle {
+        color: #0A7383;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        margin-right: -0.3em;
+        margin-top: 0.5rem;
+        animation: hud-sub-pulse 1s ease-in-out infinite alternate;
+      }
+
+      @keyframes hud-sub-pulse {
         0% {
           opacity: 0.4;
         }
 
         100% {
           opacity: 1;
+          text-shadow: 0 0 5px rgba(10, 115, 131, 0.6);
         }
       }
     </style>
     <div class="app-preloader" id="app-preloader">
-      <div class="ripple-container">
-        <div class="ripple-ring"></div>
-        <div class="ripple-ring"></div>
-        <div class="ripple-ring"></div>
-        <div class="ripple-core"></div>
+      <div class="hud-container">
+        <div class="hud-outer-ring"></div>
+        <div class="hud-middle-ring"></div>
+        <div class="hud-inner-crosshair"></div>
+        <div class="hud-sensor"></div>
+        <div class="hud-core"></div>
       </div>
-      <div class="premium-loading-container">
-        <div class="premium-title">Loading</div>
-        <div class="premium-bar-container">
-          <div class="premium-bar-fill"></div>
+      <div class="hud-text-container">
+        <div class="hud-title">INITIALIZING</div>
+        <div class="hud-decoding-bar">
+          <div class="hud-decode-segment"></div>
+          <div class="hud-decode-segment"></div>
+          <div class="hud-decode-segment"></div>
+          <div class="hud-decode-segment"></div>
+          <div class="hud-decode-segment"></div>
+          <div class="hud-decode-segment"></div>
+          <div class="hud-decode-segment"></div>
+          <div class="hud-decode-segment"></div>
+          <div class="hud-decode-segment"></div>
+          <div class="hud-decode-segment"></div>
+          <div class="hud-decode-segment"></div>
+          <div class="hud-decode-segment"></div>
+          <div class="hud-decode-segment"></div>
+          <div class="hud-decode-segment"></div>
+          <div class="hud-decode-segment"></div>
+          <div class="hud-decode-segment"></div>
         </div>
-        <div class="premium-subtitle">Preparing workspace</div>
+        <div class="hud-subtitle">Acquiring Target Data Streams...</div>
       </div>
     </div>
   </div>
