@@ -1,8 +1,12 @@
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MainLayout from './components/layout/MainLayout';
 import ScrollToTop from './components/common/ScrollToTop';
 import ProtectedRoute from './components/ProtectedRoute';
 import { AuthProvider } from './context/AuthContext';
+
+// Components
+import LoadingPage from './components/common/LoadingPage';
 
 // Pages
 import Home from './pages/pagesonNav/Home';
@@ -39,6 +43,7 @@ function App() {
             <Route path="/features" element={<Features />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/pricing" element={<Pricing />} />
+            <Route path="/loading" element={<LoadingPage />} />
 
             {/* Auth Routes */}
             <Route path="/login" element={<Login />} />
