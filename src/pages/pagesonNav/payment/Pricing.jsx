@@ -3,82 +3,65 @@ import { Check, Star, Zap, Sparkles, Shield } from 'lucide-react';
 import { motion } from 'framer-motion';
 import TypingText from '../../../components/home/TypingText';
 
+const BackgroundElements = () => (
+  <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10 bg-[#E5F9F8]">
+    <div className="absolute top-[10%] left-[20%] w-[40rem] h-[40rem] bg-adorix-accent/10 rounded-full blur-[120px]" />
+    <div className="absolute bottom-[20%] right-[10%] w-[30rem] h-[30rem] bg-adorix-primary/5 rounded-full blur-[100px]" />
+    {/* Floating dots/particles effect */}
+    {[...Array(20)].map((_, i) => (
+      <div
+        key={i}
+        className="absolute w-1 h-1 bg-adorix-primary/20 rounded-full animate-pulse"
+        style={{
+          top: `${Math.random() * 100}%`,
+          left: `${Math.random() * 100}%`,
+          animationDelay: `${Math.random() * 5}s`,
+        }}
+      />
+    ))}
+  </div>
+);
+
 const PricingCard = ({
   title,
-  oldPrice,
   offerPrice,
-  afterPrice,
-  savings,
   features,
   icon: Icon,
   recommended
 }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
   return (
     <div
-      className={`relative p-8 rounded-3xl border transition-all duration-500 h-full flex flex-col ${recommended && isHovered
-        ? 'border-adorix-primary bg-gradient-to-br from-white to-adorix-light shadow-2xl scale-105'
-        : 'border-gray-200 bg-white hover:border-adorix-primary/30'
-        }`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      className={`relative p-10 rounded-[2.5rem] transition-all duration-500 h-full flex flex-col bg-white shadow-[0_15px_40px_rgba(0,0,0,0.04)] border border-gray-50`}
     >
-      {/* Most Popular Tag */}
-      {recommended && (
-        <div className={`absolute -top-4 left-1/2 -translate-x-1/2 transition-all duration-300 ${isHovered ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 -translate-y-2 scale-95 pointer-events-none'
-          }`}>
-          <span className="bg-gradient-to-r from-adorix-primary to-adorix-secondary text-white text-[10px] font-bold px-4 py-2 rounded-full uppercase shadow-lg flex items-center gap-1 tracking-widest">
-            <Sparkles className="w-3 h-3" /> Most Popular
-          </span>
+      <div className="flex items-center gap-4 mb-10">
+        <div className="w-12 h-12 rounded-xl bg-gray-50 flex items-center justify-center border border-gray-100">
+          <Icon className="w-6 h-6 text-adorix-dark" />
         </div>
-      )}
-
-      <div className="flex items-center gap-3 mb-8">
-        <div className={`p-3 rounded-xl ${recommended ? 'bg-adorix-primary/10' : 'bg-gray-100'}`}>
-          <Icon className={`w-6 h-6 ${recommended ? 'text-adorix-primary' : 'text-gray-600'}`} />
-        </div>
-        <h3 className="text-2xl font-black text-adorix-dark">{title}</h3>
+        <h3 className="text-2xl font-black text-adorix-dark tracking-tight">{title}</h3>
       </div>
 
-      <div className="mb-10 min-h-[120px]">
-        <div className="flex items-center gap-2 mb-1">
-          <span className="text-gray-400 line-through text-lg font-medium">LKR {oldPrice}</span>
-          <div className="flex items-baseline">
-            <span className="text-adorix-dark text-3xl font-black ml-2">Rs {offerPrice}</span>
-            <span className="text-gray-500 font-bold ml-1">/mo</span>
-          </div>
+      <div className="mb-10">
+        <div className="flex items-baseline gap-1.5">
+          <span className="text-adorix-dark text-4xl font-black tracking-tight">USD {offerPrice}</span>
+          <span className="text-gray-400 font-bold text-sm">/mo</span>
         </div>
-
-        <p className="text-gray-500 text-sm font-medium mb-3">for 3 months</p>
-
-        <div className="space-y-1">
-          <div className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-600 bg-emerald-50 px-3 py-1.5 rounded-full">
-            <Zap className="w-3 h-3" /> Save up to Rs {savings} with offer
-          </div>
-          <p className="text-[11px] text-gray-400 mt-2 font-medium uppercase tracking-wider">
-            LKR {afterPrice}/month after
-          </p>
-        </div>
+        <p className="text-gray-400 text-xs font-bold mt-1 uppercase tracking-tight">for 3 months</p>
       </div>
 
-      <ul className="space-y-4 mb-10 flex-1">
+      <ul className="space-y-4 mb-12 flex-1">
         {features.map((feat, i) => (
-          <li key={i} className="flex items-start gap-3 text-sm text-gray-700">
-            <div className="mt-1 w-4 h-4 rounded-full bg-emerald-100 flex items-center justify-center flex-shrink-0">
-              <Check className="w-2.5 h-2.5 text-emerald-600 stroke-[3]" />
+          <li key={i} className="flex items-center gap-3 text-[13px] text-gray-600 font-semibold tracking-tight">
+            <div className="w-4 h-4 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0">
+              <Check className="w-2.5 h-2.5 text-emerald-500 stroke-[4]" />
             </div>
-            <span className="leading-tight font-medium">{feat}</span>
+            <span>{feat}</span>
           </li>
         ))}
       </ul>
 
       <a
         href="https://dashboard.adorixit.com/signup"
-        className={`block text-center w-full py-4 rounded-2xl font-bold transition-all ${recommended
-          ? 'bg-adorix-dark text-white hover:bg-adorix-primary shadow-lg shadow-adorix-dark/20'
-          : 'bg-gray-100 text-gray-900 hover:bg-adorix-light hover:text-adorix-dark'
-          }`}
+        className="block text-center w-full py-5 rounded-2xl font-black text-sm transition-all bg-[#1F2B2D] text-white hover:bg-adorix-dark/90 shadow-xl shadow-adorix-dark/10"
       >
         Get Started with {title}
       </a>
@@ -91,10 +74,7 @@ const Pricing = () => {
     {
       title: 'Plus',
       icon: Sparkles,
-      oldPrice: '250',
-      offerPrice: '62',
-      afterPrice: '250',
-      savings: '564',
+      offerPrice: '299',
       features: [
         '1 Kiosk Device',
         'Basic Analytics Dashboard',
@@ -107,10 +87,7 @@ const Pricing = () => {
     {
       title: 'Pro',
       icon: Zap,
-      oldPrice: '575',
-      offerPrice: '150',
-      afterPrice: '575',
-      savings: '1,275',
+      offerPrice: '579',
       recommended: true,
       features: [
         'Up to 5 Kiosk Devices',
@@ -126,10 +103,7 @@ const Pricing = () => {
     {
       title: 'Enterprise',
       icon: Shield,
-      oldPrice: '875',
-      offerPrice: '225',
-      afterPrice: '875',
-      savings: '1,950',
+      offerPrice: '899',
       features: [
         'Unlimited Kiosk Devices',
         'Custom AI Model Training',
@@ -144,36 +118,36 @@ const Pricing = () => {
   ];
 
   return (
-    <div className="pt-32 pb-20 px-6 min-h-screen">
-      <div className="max-w-7xl mx-auto">
+    <div className="relative pt-32 pb-40 px-6 min-h-screen">
+      <BackgroundElements />
 
+      <div className="max-w-7xl mx-auto relative">
         {/* Header */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-16">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
           >
-            <h1 className="text-5xl md:text-7xl font-black text-adorix-dark mb-6 tracking-tight">
-              {/* Sequential typing preserved */}
+            <h1 className="text-5xl md:text-[5.5rem] font-black tracking-tight leading-[1.1] text-adorix-dark mb-4">
               <TypingText text="Kiosk Plans for " speed={0.05} />
-              <span className="text-adorix-primary">
+              <span className="text-[#23717B]">
                 <TypingText text="Growers" speed={0.05} delay={0.85} />
               </span>
             </h1>
-            {/* Sub-text sentence has been removed */}
           </motion.div>
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-24 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
           {plans.map((plan, index) => (
             <motion.div
               key={plan.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 + 0.3 }}
-              className="h-full"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.15, duration: 0.6 }}
             >
               <PricingCard {...plan} />
             </motion.div>

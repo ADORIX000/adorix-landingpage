@@ -23,6 +23,7 @@ import Pricing from './pages/pagesonNav/payment/Pricing';
 import PaymentMethod from './pages/pagesonNav/payment/PaymentMethod';
 import UpgradePlan from './pages/pagesonNav/payment/UpgradePlan';
 import Checkout from './pages/pagesonNav/payment/Checkout';
+import Analytics from './pages/pagesonNav/Analytics';
 
 // Settings Pages
 import AccountInfo from './pages/settings/AccountInfo';
@@ -54,6 +55,8 @@ function App() {
             {/* Protected Dashboard Routes */}
             <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
             <Route path="/dashboard/studio" element={<ProtectedRoute><CampaignStudio /></ProtectedRoute>} />
+            <Route path="/dashboard/analytics" element={<ProtectedRoute><Analytics /></ProtectedRoute>} />
+            <Route path="/analytics" element={<ProtectedRoute><Analytics /></ProtectedRoute>} />
             <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
 
             {/* Protected Payment Routes */}
@@ -65,6 +68,7 @@ function App() {
             <Route path="/settings/account" element={<ProtectedRoute><AccountInfo /></ProtectedRoute>} />
             <Route path="/settings/security" element={<ProtectedRoute><Security /></ProtectedRoute>} />
             <Route path="/settings/policies" element={<ProtectedRoute><Policies /></ProtectedRoute>} />
+            <Route path="/policies" element={<ProtectedRoute><Policies /></ProtectedRoute>} />
             <Route path="/settings/help" element={<ProtectedRoute><Help /></ProtectedRoute>} />
             <Route path="/settings/feedback" element={<ProtectedRoute><Feedback /></ProtectedRoute>} />
           </Route>
