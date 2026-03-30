@@ -24,6 +24,8 @@ import PaymentMethod from './pages/pagesonNav/payment/PaymentMethod';
 import UpgradePlan from './pages/pagesonNav/payment/UpgradePlan';
 import Checkout from './pages/pagesonNav/payment/Checkout';
 import Analytics from './pages/pagesonNav/Analytics';
+import Blogs from './pages/pagesonNav/Blogs';
+import BlogDetail from './pages/pagesonNav/BlogDetail';
 
 // Settings Pages
 import AccountInfo from './pages/settings/AccountInfo';
@@ -45,6 +47,8 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/loading" element={<LoadingPage />} />
+            <Route path="/blogs" element={<Blogs />} />
+            <Route path="/blogs/:id" element={<BlogDetail />} />
 
             {/* Auth Routes */}
             <Route path="/login" element={<Login />} />

@@ -37,6 +37,7 @@ const Footer = () => {
                         <ul className="space-y-4 text-gray-400 text-sm">
                             <li><Link to="/features" className="hover:text-adorix-primary transition-colors">Features</Link></li>
                             <li><Link to="/pricing" className="hover:text-adorix-primary transition-colors">Pricing</Link></li>
+                            <li><Link to="/blogs" className="hover:text-adorix-primary transition-colors">Blogs</Link></li>
                             <li><Link to="/dashboard" className="hover:text-adorix-primary transition-colors">Dashboard</Link></li>
                             <li><Link to="/settings/help" className="hover:text-adorix-primary transition-colors">Help Center</Link></li>
                         </ul>
